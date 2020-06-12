@@ -1,6 +1,10 @@
 // console.log("CONNECTION ESTABLISHED");
 // console.log(`api_key=tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY`)
 
+
+
+
+//this is a request without ajax, just testing it as a backup
 const app = {}
 
     app.request = async function(){
@@ -14,7 +18,7 @@ const app = {}
 app.request();
 
 
-
+//this one utilizes jquery/ajax. it was a bit finicky at first, but it manages to move onto the 'it worked' callback, which i believe the classnotes said indicates a success
 $(function (){
     
     let API_KEY = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY";
