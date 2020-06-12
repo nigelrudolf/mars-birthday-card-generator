@@ -234,3 +234,15 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+@media screen and (min-width: 640px) {
+  font-size: 75%;
+}
+
+@media screen and (min-width: 768px) {
+  font-size: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  font-size: 108.75%;
+}
