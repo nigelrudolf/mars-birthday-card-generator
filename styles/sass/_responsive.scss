@@ -1,0 +1,124 @@
+// ==================================================
+// $Variables
+// ==================================================
+// Supports 
+// @media min-width
+// @media max-width
+// @media min-width and max-width
+
+$viewport-increment: 0.1px; // customize to suite
+
+// Desktop
+$desktop: 1024px; // customize to suite
+$pre-desktop: $desktop - $viewport-increment;
+
+// Tablet
+$tablet: 768px; // customize to suite
+$pre-tablet: $tablet - $viewport-increment;
+
+// Palm
+$palm: 640px; // customize to suite
+$post-palm: $palm + $viewport-increment;
+
+// Constraints
+$min: min-width;
+$max: max-width;
+
+
+// ==================================================
+// $Media Query @Mixin
+// ==================================================
+
+@mixin mediaQuery($constraint, $viewport1, $viewport2: null) {
+
+  @if $constraint == $min {
+
+    @media screen and ($min: $viewport1) {
+      @content;
+    }
+
+  } @else if $constraint == $max {
+
+    @media screen and ($max: $viewport1) {
+      @content;
+    }
+
+  } @else {
+
+    @media screen and ($min: $viewport1) and ($max: $viewport2) {
+      @content;
+    }
+
+  }
+
+}
+
+
+// ==================================================
+// The Implementation!
+// ==================================================
+  @include mediaQuery($min, $palm) {
+    body {
+      font-size: font-size(body) * 0.75;
+    }
+    
+  }
+ 
+  @include mediaQuery($min, $tablet) {
+    body {
+      font-size: font-size(body) * 0.85;
+    }
+
+    .navigation {
+     
+      ul {
+          li {
+              width: 200px;
+          }
+          // This is for the angled sides
+          // li:before {
+          //     display:inline-block;
+          //     position: absolute;
+          //     content:"";
+          //     border-left: 20px solid yellow;
+          //     border-bottom: 54.15px solid transparent;
+          //     height: 0;
+          //     width: 0px;
+          //     right: -20px;
+          //     top:0;
+          // }
+          // li:after {
+          //     display:inline-block;
+          //     position: absolute;
+          //     content:"";
+          //     border-right: 20px solid yellow;
+          //     border-top: 54.15px solid transparent;
+          //     height: 0;
+          //     width: 0px;
+          //     right: 70px;
+          //     top:0;
+          // }
+      }
+
+  }
+  
+  @include mediaQuery($min, $desktop) {
+
+    .main-wrapper {
+      width: 75%;
+      margin: 0 auto;
+  }
+
+    body {
+      font-size: font-size(body);
+    }
+
+    .logo-title {
+      width: 50%;
+      max-width: 460px;
+    }
+
+    
+  }
+    
+  }

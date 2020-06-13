@@ -1,0 +1,16 @@
+html, h1, h2, h3, h4, h5, h6, a, div, p, main, aside, footer, header, ul, li, a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+html {
+    font-size: font-size(html);
+    font-family: font-family(roboto-con);
+    font-weight: font-weight(bold);
+}
+
+body {
+    font-size: font-size(body) * 0.7;
+    
+}
