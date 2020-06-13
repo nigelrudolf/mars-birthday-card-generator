@@ -1,0 +1,117 @@
+header {
+    height: 80px;
+    background: radial-gradient(circle at center, color(grey-1), color(grey-2));
+}
+
+.header-wrapper {
+    height: 100%;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: color(white);
+    h2 {
+        text-transform: uppercase;
+    }
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+        height: 55px;
+    }
+    span {
+        font-family: font-family(roboto);
+        font-weight: font-weight(light);
+    }
+}
+
+main {
+    height: calc(100vh - 80px);
+    background-image: url(../assets/mars-perseverance-rover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    
+}
+
+.main-wrapper {
+    width: 100%;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    ul {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 20px);
+        max-width: 420px;
+        li {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 145px;
+            list-style: none;
+            padding: 10px;
+            background: color(orange);
+            position: relative;
+            a {
+                text-decoration: none;
+                color: color(white);
+                text-transform: uppercase;
+            }
+        }
+        // This is for the angled sides
+        // li:before {
+        //     display:inline-block;
+        //     position: absolute;
+        //     content:"";
+        //     border-left: 20px solid yellow;
+        //     border-bottom: 54.15px solid transparent;
+        //     height: 0;
+        //     width: 0px;
+        //     right: -20px;
+        //     top:0;
+        // }
+        // li:after {
+        //     display:inline-block;
+        //     position: absolute;
+        //     content:"";
+        //     border-right: 20px solid yellow;
+        //     border-top: 54.15px solid transparent;
+        //     height: 0;
+        //     width: 0px;
+        //     right: 70px;
+        //     top:0;
+        // }
+    }
+}
+
+.birthday-form {
+    display: flex;
+    flex-direction: column;
+    
+    input {
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid color(white);
+    }
+
+    .form-button {
+        color: color(white);
+        font-weight: font-weight(bold);
+        text-transform: uppercase;
+        width: 220px;
+        padding: 10px;
+        background: unset;
+        background: color(orange);
+        border: none;
+    }
+}
+
