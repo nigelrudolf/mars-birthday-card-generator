@@ -13,12 +13,12 @@ const app = {}
         let response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earth_date}&api_key=${API_KEY}`);
         console.log(response);
         let data = await response.json()
-        console.log(data.photos[1].img_src);
+        console.log(`here is a photo from that date ${data.photos[1].img_src}`);
     }
 app.request();
 
 
-//this one utilizes jquery/ajax. it was a bit finicky at first, but it manages to move onto the 'it worked' callback, which i believe the classnotes said indicates a success
+//this one utilizes jquery/ajax. result is an object of photos for the given earth_date
 $(function (){
     
     let API_KEY = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY";
@@ -27,8 +27,8 @@ $(function (){
         url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${earth_date}&api_key=${API_KEY}`,
         method: 'GET',
         dataType: 'json',   
-    }).then(function(){
-        console.log('it worked')
+    }).then(function(result){
+        console.log('here is a photo from that date:', result.photos[1].img_src)
     });
 });
 
@@ -39,4 +39,4 @@ const dateControl = document.querySelector('input[type="date"]');
 dateControl.value = "2019-01-01" // sets a default
 // console.log(dateControl.value);
 userBirthday = dateControl.value 
-url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${userBirthday}&api_key=${API_KEY}`,
+// url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${userBirthday}&api_key=${API_KEY}`,
