@@ -1,0 +1,19 @@
+@function color($color-name) {
+    $choice: map-get($colors, $color-name);
+    @return $choice;
+}
+
+@function font-family($type) {
+    $choice: map-get($font-families, $type);
+    @return $choice;
+}
+
+@function font-size($type) {
+    $choice: map-get($font-sizes, $type);
+    @return $choice;
+}
+
+@function font-weight($type) {
+    $choice: map-get($font-weights, $type);
+    @return $choice;
+}

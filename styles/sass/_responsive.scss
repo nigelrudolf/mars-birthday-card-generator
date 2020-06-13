@@ -58,13 +58,84 @@ $max: max-width;
 // The Implementation!
 // ==================================================
   @include mediaQuery($min, $palm) {
-    font-size: 75%;
+    body {
+      font-size: font-size(body) * 0.75;
+    }
+    
   }
  
   @include mediaQuery($min, $tablet) {
-    font-size: 100%;
+    body {
+      font-size: font-size(body) * 0.85;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      ul {
+          display: flex;
+          justify-content: space-between;
+          width: 420px;
+          li {
+              display: flex;
+              justify-content: center;
+              align-content: center;
+              width: 200px;
+              list-style: none;
+              padding: 10px;
+              background: color(orange);
+              position: relative;
+              a {
+                  text-decoration: none;
+                  color: color(white);
+                  text-transform: uppercase;
+              }
+          }
+          // This is for the angled sides
+          // li:before {
+          //     display:inline-block;
+          //     position: absolute;
+          //     content:"";
+          //     border-left: 20px solid yellow;
+          //     border-bottom: 54.15px solid transparent;
+          //     height: 0;
+          //     width: 0px;
+          //     right: -20px;
+          //     top:0;
+          // }
+          // li:after {
+          //     display:inline-block;
+          //     position: absolute;
+          //     content:"";
+          //     border-right: 20px solid yellow;
+          //     border-top: 54.15px solid transparent;
+          //     height: 0;
+          //     width: 0px;
+          //     right: 70px;
+          //     top:0;
+          // }
+      }
+
   }
   
   @include mediaQuery($min, $desktop) {
-    font-size: 108.75%;
+
+    .main-wrapper {
+      width: 75%;
+      margin: 0 auto;
+  }
+
+    body {
+      font-size: font-size(body);
+    }
+
+    .logo-title {
+      width: 50%;
+      max-width: 460px;
+    }
+
+    
+  }
+    
   }
