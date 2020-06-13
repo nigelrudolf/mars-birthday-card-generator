@@ -16,7 +16,6 @@
             <h1>Mars <span>Birthday Card Generator</span></h1>
         </div>
         <h2>Mars 2020</h2>
-        
     </div> 
 </header>
 <main>
@@ -28,24 +27,29 @@
             </ul>
         </nav>
         <form class="birthday-form" action="">
-            <label for=""></label>
-            <input type="email" placeholder="Email">
+            <label class="sr-only" for="email-input" id="email-input">Email</label>
+            <input class="email-input" type="email" placeholder="Email">
 
-            <label for=""></label>
+            <label class="sr-only" for="name-input" id="name-input">Name</label>
             <input type="text" placeholder="Name">
 
-            <label for=""></label>
+            <label class="sr-only" for="birthday-input" id="birthday-input">Birthday</label>
             <input type="text" placeholder="Birthday">
 
-            <label for=""></label>
+            <label class="sr-only" for="message-input" id="message-input">Message</label>
             <input type="text" placeholder="Message">
 
-            <label for=""></label>
+            <label class="sr-only" for="form-button" id="form-button">Submit</label>
             <input class="form-button" type="submit" value="Submit">
         </form>
     </div>
 
 </main>
+
+<footer>
+    <p>Copyright Krys & Nigel 2020. Design inspired by NASA's Send Your Name to Mars <a href="https://mars.nasa.gov/participate/send-your-name/mars2020/" target="_blank">campaign</a></p>
+</footer>
+
 <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
 <script src="script/script.js"></script>
 </body>
