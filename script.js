@@ -32,3 +32,11 @@ $(function (){
     });
 });
 
+
+
+//date control (taken from MDN) will grab the input with a type of 'date' and parse the value as YYYY-MM-DD which is the format necessary for the 'earth_date' key in the api request. ie
+const dateControl = document.querySelector('input[type="date"]');
+dateControl.value = "2019-01-01" // sets a default
+// console.log(dateControl.value);
+userBirthday = dateControl.value 
+url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${userBirthday}&api_key=${API_KEY}`,
