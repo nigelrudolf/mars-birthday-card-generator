@@ -1,3 +1,10 @@
+body {
+    background-image: url(../assets/mars-perseverance-rover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 header {
     height: 80px;
     background: radial-gradient(circle at center, color(grey-1), color(grey-2));
@@ -30,13 +37,12 @@ header {
 }
 
 main {
-    height: calc(100vh - 80px);
-    background-image: url(../assets/mars-perseverance-rover.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    height: calc(100vh - 125px);
+    // background-image: url(../assets/mars-perseverance-rover.jpg);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
     display: flex;
-    
 }
 
 .main-wrapper {
@@ -55,16 +61,26 @@ main {
         li {
             display: flex;
             justify-content: center;
-            align-content: center;
-            width: 145px;
-            list-style: none;
+            align-items: center;
             padding: 10px;
+            width: 145px; 
+            list-style: none;
             background: color(orange);
             position: relative;
+            &:hover {
+                background: color(button-hover);
+                a {
+                    color: color(orange);
+                }
+                }
+            }
             a {
                 text-decoration: none;
                 color: color(white);
                 text-transform: uppercase;
+                &:hover {
+                    color: color(orange);
+                }
             }
         }
         // This is for the angled sides
@@ -90,17 +106,22 @@ main {
         //     right: 70px;
         //     top:0;
         // }
-    }
 }
+
 
 .birthday-form {
     display: flex;
     flex-direction: column;
+    background-color: rgba($color: #000, $alpha: .25);
+    padding: 40px 80px 40px 80px;
+    border-radius: 0 0 20px 20px;
     
     input {
         background: transparent;
         border: none;
-        border-bottom: 2px solid color(white);
+        border-bottom: 1px solid color(white);
+        color: color(white);
+        padding: 10px;
     }
 
     .form-button {
@@ -108,10 +129,38 @@ main {
         font-weight: font-weight(bold);
         text-transform: uppercase;
         width: 220px;
-        padding: 10px;
+        padding: 15px 10px 10px 10px;
         background: unset;
         background: color(orange);
         border: none;
+        align-self: center;
+        margin-top: 20px;
+        margin-bottom: -67.25px;
+        &:hover {
+            color: color(orange);
+            background: color(button-hover);
+        }
+    }
+    ::placeholder {
+        color: color(white);
+        text-transform: uppercase;
+        font-family: font-family(roboto-con);
+        font-weight: font-weight(bold);
+    }
+}
+
+
+footer {
+    p {
+        color: color(white);
+        font-size: 2rem;
+        font-family: font-family(roboto);
+        font-weight: font-weight(regular);
+        text-align: center;
+        padding: 10px;
+        a {
+            color: color(white);
+        }
     }
 }
 

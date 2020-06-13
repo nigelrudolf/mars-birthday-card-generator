@@ -70,27 +70,10 @@ $max: max-width;
     }
 
     .navigation {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
+     
       ul {
-          display: flex;
-          justify-content: space-between;
-          width: 420px;
           li {
-              display: flex;
-              justify-content: center;
-              align-content: center;
               width: 200px;
-              list-style: none;
-              padding: 10px;
-              background: color(orange);
-              position: relative;
-              a {
-                  text-decoration: none;
-                  color: color(white);
-                  text-transform: uppercase;
-              }
           }
           // This is for the angled sides
           // li:before {
