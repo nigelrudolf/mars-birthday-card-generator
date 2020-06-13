@@ -39,4 +39,5 @@ const dateControl = document.querySelector('input[type="date"]');
 dateControl.value = "2019-01-01" // sets a default
 // console.log(dateControl.value);
 userBirthday = dateControl.value 
+console.log(userBirthday.slice(5))
 // url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${userBirthday}&api_key=${API_KEY}`,
