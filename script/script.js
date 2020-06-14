@@ -1,7 +1,26 @@
 const nasaApp = {}
 
+
+
+let roverArray = ['curiosity', 'opportunity', 'spirit'];
+
+let dateRange = [00, 01, 02, 03, 04, 05 ,06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
+
+shuffle(roverArray);
+let randomRover = roverArray[0];
+shuffle(dateRange);
+let randomDateRange = dateRange[0]
+console.log(randomDateRange)
+
+
+
 nasaApp.key = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY";
-nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-12-26&api_key=${nasaApp.key}`;
+nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${randomRover}/photos?earth_date=2016-12-${randomDateRange}&api_key=${nasaApp.key}`;
 
 nasaApp.getMarsImages = $.ajax({
     url: nasaApp.url,
