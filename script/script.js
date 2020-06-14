@@ -1,11 +1,7 @@
-// // console.log("CONNECTION ESTABLISHED");
-// // console.log(`api_key=tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY`)
+// console.log("CONNECTION ESTABLISHED");
+// console.log(`api_key=tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY`)
 
-
-
-
-// //this is a request without ajax, just testing it as a backup
-
+//VANILLA JS API REQUEST
 // nasaApp.request = async function(){
     //     let API_KEY = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY";
     //     let earth_date = `2016-12-26`;
@@ -31,14 +27,16 @@
     
 const nasaApp = {}
 
-nasaApp.init() = function(){
 
+nasaApp.key = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY"
+nasaApp.init =  function(){
 
-}
+}   
+
 
 $(function (){
-
-    nasaApp.init();
+    
+    // nasaApp.init();
     
     let API_KEY = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY";
     let earth_date = `2016-12-26`;
@@ -47,7 +45,20 @@ $(function (){
         method: 'GET',
         dataType: 'json',
     }).then(function(result){
-        console.log('here is a photo from that date:', result.photos[1].img_src)
-    });
+        
+        console.log(result.photos[1].camera.name) // camera name
+        console.log(result.photos[1].sol) //sol
+        console.log(result.photos[1].rover.name) //rover
+        let exampleImage = result.photos[1].img_src // saving image in exampleImage variable
+        
+    nasaApp.data = {
+    everything: result,
+    camera: result.photos[1].camera.name,
+    sol: result.photos[1].sol,
+    rover: result.photos[1].rover.name,
+    exampleImage: result.photos[1].img_src
+    }
+
+    });        
 });
 
