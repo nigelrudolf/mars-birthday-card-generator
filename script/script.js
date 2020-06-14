@@ -22,42 +22,20 @@
     // url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${userBirthday}&api_key=${API_KEY}`,
     
     
-    
-    
-    
+ 
 const nasaApp = {}
-// nasaApp.data = {
-//     roverName : result.photos[1].rover.name,
-// // camera: photos[1].camera.name,
-// // sol: photos[1].sol,
-// // rover: photos[1].rover.name,
-// // exampleImage: photos[1].img_src
-// }
-// nasaApp.birthdayCard = `
-// <div class="birthday-card">
-// <div class="nasa-img"></div>
-// <p>Birhday Message</p>
-// <ul>
-//     <li>Rover: ${nasaApp.data.rover}</li>
-//     <li>Cam: ${nasaApp.data.camera}</li>
-//     <li>Sol:${nasaApp.data.sol} </li>
-// </ul>
-// <ul>
-//     <li><a href=""><i class="social-icon fab fa-twitter"></i></a></li>
-//     <li><a href=""><i class="social-icon fab fa-facebook-f"></i></a></li>
-// </ul>
-// </div>`;
-// nasaApp.displayBirthdayCard = function(){
-//     $(".navigation").after(nasaApp.birthdayCard);
-// }
-
-// nasaApp.hideBirthdayForm = function(){
-//     $(".birthday-form").hide();
-// }
 
 nasaApp.key = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY"
-nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-12-26&api_key=${nasaApp.key}`
 
+nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-12-26&api_key=${nasaApp.key}`
+    
+nasaApp.displayBirthdayCard = function(){
+    $(".navigation").after(nasaApp.birthdayCard);
+}
+
+nasaApp.hideBirthdayForm = function(){
+    $(".birthday-form").hide();
+}
 
 nasaApp.init =  function(){
     $.ajax({
@@ -65,30 +43,46 @@ nasaApp.init =  function(){
         method: 'GET',
         dataType: 'json',
     }).then(function(result){
-        console.log(nasaApp.data.roverName)
+        
         nasaApp.data = {
             roverName : result.photos[1].rover.name,
-        // camera: photos[1].camera.name,
-        // sol: photos[1].sol,
-        // rover: photos[1].rover.name,
-        // exampleImage: photos[1].img_src
+            camera: result.photos[1].camera.name,
+            sol: result.photos[1].sol,
+            rover: result.photos[1].rover.name,
+            exampleImage: result.photos[1].img_src
         }
         
-    
+        nasaApp.birthdayCard = `
+        <div class="birthday-card">
+        <div class="nasa-img"></div>
+        <p>Birhday Message</p>
+        <ul>
+            <li>Rover: ${nasaApp.data.rover}</li>
+            <li>Cam: ${nasaApp.data.camera}</li>
+            <li>Sol:${nasaApp.data.sol} </li>
+        </ul>
+        <ul>
+            <li><a href=""><i class="social-icon fab fa-twitter"></i></a></li>
+            <li><a href=""><i class="social-icon fab fa-facebook-f"></i></a></li>
+        </ul>
+        </div>`;
+        
     });        
-
-    $('.form-button').on('click', function(e){
-        e.preventDefault();
-        // nasaApp.hideBirthdayForm();
-        // nasaApp.displayBirthdayCard();
-    });
+    
 };
 
 
 
 $(function (){
     
-    nasaApp.init();
+nasaApp.init();
+    
+$('.form-button').on('click', function(e){
+    e.preventDefault();
+    nasaApp.hideBirthdayForm();
+    nasaApp.displayBirthdayCard();
+    });
+
 
 });
 
