@@ -10,7 +10,7 @@ nasaApp.getMarsImages = $.ajax({
 });
 
 nasaApp.selectRandomImage = function() {
-    
+
 }
 
 nasaApp.gatherFormData = function() {
@@ -18,8 +18,7 @@ nasaApp.gatherFormData = function() {
     let name =  $('.name-input').val();
     let birthday =  $('.birthday-input').val();
     let message =  $('.message-input').val();
-
-    return [email, name, birthday, message];
+    return [email, name, birthday, message]; 
 }
 
 nasaApp.generateBirthdayCard = function(roverName, camera, sol){
