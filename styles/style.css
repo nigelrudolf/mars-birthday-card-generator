@@ -396,7 +396,6 @@ main {
   width: calc(100% - 40px);
   height: 400px;
   margin: 20px auto;
-  background: url(https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01561/opgs/edr/fcam/FLB_536063300EDR_F0593016FHAZ00341M_.JPG);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
