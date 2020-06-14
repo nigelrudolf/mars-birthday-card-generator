@@ -313,6 +313,16 @@ main {
 
 .main-wrapper {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .navigation {
@@ -369,6 +379,31 @@ main {
 
 .navigation ul a:hover {
   color: #C65A2C;
+}
+
+.birthday-card {
+  width: 625px;
+  height: 550px;
+  background: #FFF;
+  color: #000;
+}
+
+.birthday-card ul li {
+  list-style: none;
+}
+
+.birthday-card .nasa-img {
+  width: calc(100% - 40px);
+  height: 400px;
+  margin: 20px auto;
+  background: url(https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01561/opgs/edr/fcam/FLB_536063300EDR_F0593016FHAZ00341M_.JPG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.birthday-card .social-icon {
+  color: #000;
 }
 
 .birthday-form {
