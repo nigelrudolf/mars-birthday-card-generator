@@ -2,26 +2,21 @@ const nasaApp = {}
 
 
 
-let roverArray = ['curiosity', 'opportunity', 'spirit'];
-
-let dateRange = [00, 01, 02, 03, 04, 05 ,06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
-
-
-function shuffle(array) {
+let dateRange = [10, 13, 14, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27];
+nasaApp.shuffle = array => {
     array.sort(() => Math.random() - 0.5);
 }
-
-shuffle(roverArray);
-let randomRover = roverArray[0];
-shuffle(dateRange);
+nasaApp.shuffle(dateRange);
 let randomDateRange = dateRange[0]
-console.log(randomDateRange)
+
+
+
 
 
 
 nasaApp.key = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY";
-nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${randomRover}/photos?earth_date=2016-12-${randomDateRange}&api_key=${nasaApp.key}`;
-
+nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2019-01-${randomDateRange}&api_key=${nasaApp.key}`;
+console.log(nasaApp.url)
 nasaApp.getMarsImages = $.ajax({
     url: nasaApp.url,
     method: 'GET',
@@ -48,7 +43,7 @@ nasaApp.generateBirthdayCard = function(roverName, camera, sol){
     <div class="nasa-img"></div>
     <p>Happy Birthday ${name}. ${message}</p>
     <ul>
-        <li>Rover: ${roverName}</li>
+        <li>Rover: Curiosity </li>
         <li>Cam: ${camera}</li>
         <li>Sol: ${sol}</li>
     </ul>
@@ -72,10 +67,11 @@ nasaApp.displayBirthdayCard = function(img_src, birthdayCard){
 nasaApp.init =  function() {
     nasaApp.getMarsImages.then( (newImages) => {
         const { photos } = newImages;
-        // selectRandomImage();
-        const { camera, earth_date, img_src, rover, sol  } = newImages.photos[25]; // destructured :)
+        console.log(photos[0]);
+        const { camera, earth_date, img_src, rover, sol  } = newImages.photos[0]; // destructured :)
         $('.form-button').on('click', function(e){
             e.preventDefault();
+            console.log(newImages)
             let birthdayCard = nasaApp.generateBirthdayCard(rover.name, camera.name, sol);
             nasaApp.hideBirthdayForm();
             nasaApp.displayBirthdayCard(img_src, birthdayCard);
