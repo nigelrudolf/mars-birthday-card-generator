@@ -1,7 +1,17 @@
 const nasaApp = {}
 
+
+
+
+
+
+
+
+
+
+
 nasaApp.key = "tBamPmfMDWz4V3P6N9NonSibwfdLF73yuNa5GQVY";
-nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-12-26&api_key=${nasaApp.key}`;
+nasaApp.url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2019-01-04&api_key=${nasaApp.key}`;
 
 nasaApp.getMarsImages = $.ajax({
     url: nasaApp.url,
@@ -18,7 +28,9 @@ nasaApp.gatherFormData = function() {
     let name =  $('.name-input').val();
     let birthday =  $('.birthday-input').val();
     let message =  $('.message-input').val();
+  
     return [email, name, birthday, message]; 
+
 }
 
 nasaApp.generateBirthdayCard = function(roverName, camera, sol){
@@ -40,7 +52,6 @@ nasaApp.generateBirthdayCard = function(roverName, camera, sol){
         </div>
     </div>`;
 }
-
 nasaApp.hideBirthdayForm = function(){
     $(".birthday-form").hide();
 }
@@ -50,13 +61,20 @@ nasaApp.displayBirthdayCard = function(img_src, birthdayCard){
     $('.nasa-img').css("background", 'url(' + img_src + ')'); // set .nasa-img as randomly selected mars image
 }
 
+nasaApp.shuffle = array => {
+    array.sort(() => Math.random() - 0.5);
+}
+
 nasaApp.init =  function() {
     nasaApp.getMarsImages.then( (newImages) => {
         const { photos } = newImages;
-        // selectRandomImage();
-        const { camera, earth_date, img_src, rover, sol  } = newImages.photos[25]; // destructured :)
+        nasaApp.shuffle(photos)
+        const { camera, earth_date, img_src, rover, sol  } = newImages.photos[0]; // destructured :)
         $('.form-button').on('click', function(e){
             e.preventDefault();
+  
+
+            
             let birthdayCard = nasaApp.generateBirthdayCard(rover.name, camera.name, sol);
             nasaApp.hideBirthdayForm();
             nasaApp.displayBirthdayCard(img_src, birthdayCard);
