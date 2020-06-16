@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    min-height: 100vh;
 }
 
 header {
@@ -37,12 +38,8 @@ header {
 }
 
 main {
-    height: calc(100vh - 125px);
-    // background-image: url(../assets/mars-perseverance-rover.jpg);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position: center;
-    display: flex;
+    min-height: 100vh;
+    padding-bottom: 50px;
 }
 
 .main-wrapper {
@@ -56,17 +53,19 @@ main {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    width: calc(100% - 40px);
     ul {
         display: flex;
         justify-content: space-between;
-        width: calc(100% - 20px);
+        // width: calc(100% - 20px);
         max-width: 420px;
+        width: 100%;
         li {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 10px;
-            width: 145px; 
+            width: 135px; 
             list-style: none;
             background: color(orange);
             position: relative;
@@ -85,43 +84,23 @@ main {
                     color: color(orange);
                 }
             }
-        }
-        // This is for the angled sides
-        // li:before {
-        //     display:inline-block;
-        //     position: absolute;
-        //     content:"";
-        //     border-left: 20px solid yellow;
-        //     border-bottom: 54.15px solid transparent;
-        //     height: 0;
-        //     width: 0px;
-        //     right: -20px;
-        //     top:0;
-        // }
-        // li:after {
-        //     display:inline-block;
-        //     position: absolute;
-        //     content:"";
-        //     border-right: 20px solid yellow;
-        //     border-top: 54.15px solid transparent;
-        //     height: 0;
-        //     width: 0px;
-        //     right: 70px;
-        //     top:0;
-        // }
+    }
 }
 
 .birthday-card {
-    width: 625px;
-    height: 550px;
+    width: 100%;
+    max-width: 625px;
     background: color(white);
     color: color(black);
+    padding-bottom: 20px;
 
-    ul li {
+    ul {
         list-style: none;
+        li {
+            font-size: font-size(bcard-sub);
+        }
     }
     .nasa-img {
-        width: calc(100% - 40px);
         height: 400px;
         margin: 20px auto;
         background-repeat: no-repeat;
@@ -133,13 +112,30 @@ main {
     }
 }
 
+.social-media-icons {
+    display: flex;
+    justify-content: flex-end;
+    li {
+        margin-left: 20px;
+    }
+}
+
+.birthday-card-wrapper {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    p, ul {
+        margin-bottom: 10px;
+    }
+}
+
 .birthday-form {
     display: flex;
     flex-direction: column;
     background-color: rgba($color: #000, $alpha: .25);
-    padding: 40px 80px 40px 80px;
+    padding: 20px;
     border-radius: 0 0 20px 20px;
-    
+    width: 100%;
+    max-width: 420px;
     input {
         background: transparent;
         border: none;
