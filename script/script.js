@@ -26,20 +26,21 @@ nasaApp.generateBirthdayCard = function(roverName, camera, sol){
     const [email, name, birthday, message] = nasaApp.gatherFormData();
     return birthdayCard = `
     <div class="birthday-card">
-    <div class="nasa-img"></div>
-    <p>Happy Birthday ${name}. ${message}</p>
-    <ul>
-        <li>Rover: ${roverName}</li>
-        <li>Cam: ${camera}</li>
-        <li>Sol: ${sol}</li>
-    </ul>
-    <ul>
-        <li><a href=""><i class="social-icon fab fa-twitter"></i></a></li>
-        <li><a href=""><i class="social-icon fab fa-facebook-f"></i></a></li>
-    </ul>
+        <div class="birthday-card-wrapper">
+            <div class="nasa-img"></div>
+            <p>Happy Birthday ${name}. ${message}</p>
+            <ul>
+                <li>Rover: ${roverName}</li>
+                <li>Cam: ${camera}</li>
+                <li>Sol: ${sol}</li>
+            </ul>
+            <ul class="social-media-icons" >
+                <li><a href=""><i class="social-icon fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="social-icon fab fa-facebook-f"></i></a></li>
+            </ul>
+        </div>
     </div>`;
-
-} 
+}
 
 nasaApp.hideBirthdayForm = function(){
     $(".birthday-form").hide();

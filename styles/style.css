@@ -256,6 +256,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  min-height: 100vh;
 }
 
 header {
@@ -305,10 +306,8 @@ header {
 }
 
 main {
-  height: calc(100vh - 125px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
 
 .main-wrapper {
@@ -333,6 +332,7 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 20px 0;
+  width: calc(100% - 40px);
 }
 
 .navigation ul {
@@ -342,8 +342,8 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: calc(100% - 20px);
   max-width: 420px;
+  width: 100%;
 }
 
 .navigation ul li {
@@ -357,7 +357,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px;
-  width: 145px;
+  width: 135px;
   list-style: none;
   background: #C65A2C;
   position: relative;
@@ -382,18 +382,22 @@ main {
 }
 
 .birthday-card {
-  width: 625px;
-  height: 550px;
+  width: 100%;
+  max-width: 625px;
   background: #FFF;
   color: #000;
+  padding-bottom: 20px;
 }
 
-.birthday-card ul li {
+.birthday-card ul {
   list-style: none;
 }
 
+.birthday-card ul li {
+  font-size: 2rem;
+}
+
 .birthday-card .nasa-img {
-  width: calc(100% - 40px);
   height: 400px;
   margin: 20px auto;
   background-repeat: no-repeat;
@@ -405,6 +409,28 @@ main {
   color: #000;
 }
 
+.social-media-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.social-media-icons li {
+  margin-left: 20px;
+}
+
+.birthday-card-wrapper {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.birthday-card-wrapper p, .birthday-card-wrapper ul {
+  margin-bottom: 10px;
+}
+
 .birthday-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -414,8 +440,10 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgba(0, 0, 0, 0.25);
-  padding: 40px 80px 40px 80px;
+  padding: 20px;
   border-radius: 0 0 20px 20px;
+  width: 100%;
+  max-width: 420px;
 }
 
 .birthday-form input {
@@ -492,18 +520,41 @@ footer p a {
   body {
     font-size: 2.25rem;
   }
+  .navigation ul li {
+    width: 200px;
+  }
+  .birthday-card ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .birthday-card ul li {
+    margin-left: 20px;
+  }
+  .birthday-card ul li:nth-child(1) {
+    margin-left: 0;
+  }
+  .birthday-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 840px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 40px 80px 40px 80px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   body {
     font-size: 2.55rem;
   }
-  .navigation ul li {
-    width: 200px;
-  }
 }
 
-@media screen and (min-width: 768px) and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .main-wrapper {
     width: 75%;
     margin: 0 auto;
