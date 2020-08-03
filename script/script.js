@@ -10,8 +10,12 @@ nasaApp.rovers = {
         spirit: 'spirit',
 };
 
+nasaApp.state = {
+        randomPhoto: [],
+}
+
 nasaApp.getMarsImages = () => {
-        $.ajax({
+        return $.ajax({
                 url: nasaApp.baseUrl,
                 method: 'GET',
                 dataType: 'json',
@@ -44,16 +48,8 @@ nasaApp.getMarsImages = () => {
                                 }
                                 return array[0];
                         }
-
-                        $('.birthday-form').submit(function(event) {
-                                event.preventDefault();
-
-                                const { camera, img_src, rover, sol } = shuffle(latestPhotos);
-
-                                const birthdayCard = nasaApp.generateBirthdayCard(rover.name, camera.name, sol);
-                                nasaApp.hideBirthdayForm();
-                                nasaApp.displayBirthdayCard(img_src, birthdayCard);
-                        });
+                        const randomPhoto = [...nasaApp.state.randomPhoto, shuffle(latestPhotos)];
+                        nasaApp.state.randomPhoto = randomPhoto;
                 })
                 .fail(function(result) {
                         nasaApp.displayBirthdayCard();
@@ -98,7 +94,18 @@ nasaApp.displayBirthdayCard = function(img_src, birthdayCard) {
 };
 
 nasaApp.init = function() {
-        nasaApp.getMarsImages();
+
+        $('.birthday-form').submit(async function(e) {
+                e.preventDefault();
+                
+                await nasaApp.getMarsImages();                      
+
+                const { camera, img_src, rover, sol } = [...nasaApp.state.randomPhoto][0] // copy of state - not mutating state directly
+                
+                const birthdayCard = nasaApp.generateBirthdayCard(rover.name, camera.name, sol);
+                nasaApp.hideBirthdayForm();
+                nasaApp.displayBirthdayCard(img_src, birthdayCard);
+        });
 };
 
 $(function() {
